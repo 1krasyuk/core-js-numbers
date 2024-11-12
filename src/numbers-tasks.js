@@ -50,7 +50,7 @@ function getCircleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return (BigInt(value1) + BigInt(value2)) / BigInt(2);
+  return value1 / 2 + value2 / 2;
 }
 
 /**
@@ -206,7 +206,7 @@ function isPrime(n) {
     return false;
   }
 
-  for (let i = 2; i < n; i = +1) {
+  for (let i = 2; i < n; i += 1) {
     if (n % i === 0) {
       return false;
     }
@@ -269,7 +269,7 @@ function getFibonacciNumber(index) {
 
   let a = 0;
   let b = 1;
-  for (let i = 2; i <= index; i = +1) {
+  for (let i = 2; i <= index; i += 1) {
     const temp = a + b;
     a = b;
     b = temp;
@@ -324,7 +324,12 @@ function getSumOfDigits(num) {
  *   15  => false
  */
 function isPowerOfTwo(num) {
-  return num > 0 && (num && num - 1) === 0;
+  if (num == 0) return false;
+
+  while (num % 2 == 0){
+    num = num/2
+  }
+  return num === 1
 }
 
 /**
